@@ -50,11 +50,13 @@ const PostList = () => {
         placeholder="Enter the title of Post"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        required
       />
       <Input
         placeholder="Enter the content of Post "
         value={content}
         onChange={(e) => setContent(e.target.value)}
+        required
       />
 
       {displayUpdateButton ? (
@@ -63,15 +65,21 @@ const PostList = () => {
           type="dashed"
           size="large"
           onClick={() => {
-            const newPost = {
-              id: uid(),
-              title: title,
-              content: content,
-            };
-
-            dispatch(addPost(newPost));
-            setContent("");
-            setTitle("");
+            if(title!==''&& content !==''){
+              const newPost = {
+                id: uid(),
+                title: title,
+                content: content,
+              };
+  
+              dispatch(addPost(newPost));
+              setContent("");
+              setTitle("");
+            }
+            else{
+              alert('Enter The Post Details')
+            }
+            
           }}
         >
           Add Post
@@ -84,11 +92,12 @@ const PostList = () => {
               content: content,
               id: postId,
             };
-            console.log(upPost);
+            // console.log(upPost);
 
             dispatch(updatePost(upPost));
             setTitle("");
             setContent("");
+            setDisplayUpdateButton(true);
           }}
         >
           Update
