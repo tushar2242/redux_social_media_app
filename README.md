@@ -1,4 +1,4 @@
-# redux_social_media_app
+# Redux_social_media_app
 We are using vite ,
 
 library : Ant Design for UI
