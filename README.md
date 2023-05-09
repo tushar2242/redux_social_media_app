@@ -1,5 +1,5 @@
 # Redux_social_media_app
-We are using vite ,
+We are using Vite ,
 
 library : Ant Design for UI
 
