@@ -9,3 +9,10 @@
   margin-bottom: 20px;
   padding: 10px;
 }
+.ant-card-body .anticon{
+  margin-left: 10px;
+  margin-top: 10px;
+
+  cursor: pointer;
+
+}

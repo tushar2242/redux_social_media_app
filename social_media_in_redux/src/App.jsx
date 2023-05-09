@@ -6,7 +6,7 @@ import { Button } from "antd";
 import { addPost, removePost, updatePost } from "./post/postSlice";
 import { useState } from "react";
 import { uid } from "uid";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined, LikeOutlined,CommentOutlined,HeartOutlined } from "@ant-design/icons";
 
 function App() {
   return (
@@ -65,21 +65,19 @@ const PostList = () => {
           type="dashed"
           size="large"
           onClick={() => {
-            if(title!==''&& content !==''){
+            if (title !== "" && content !== "") {
               const newPost = {
                 id: uid(),
                 title: title,
                 content: content,
               };
-  
+
               dispatch(addPost(newPost));
               setContent("");
               setTitle("");
+            } else {
+              alert("Enter The Post Details");
             }
-            else{
-              alert('Enter The Post Details')
-            }
-            
           }}
         >
           Add Post
@@ -123,6 +121,8 @@ const PostList = () => {
               icon={<EditOutlined />}
               onClick={() => handleUpdatePost(postItem.id)}
             />
+            <br />
+            <LikeOutlined twoToneColor="#52c41a" /><CommentOutlined twoToneColor="#52c41a" /> <HeartOutlined twoToneColor="#52c41a" />
           </Card>
         );
       })}
